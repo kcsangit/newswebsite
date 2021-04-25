@@ -1,0 +1,57 @@
+{% extends 'frontend/master/master.html' %}
+{%load static%}
+
+{%block content%}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Team</li>
+        </ol>
+        <h2>Team</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="row">
+          {%for team in teamlist%}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="{{team.timage.url}}" alt="">
+              <h4>{{team.tname}}</h4>
+              <span>{{team.tposition }}</span>
+              <p>
+                {{team.tdescription |safe}}
+              </p>
+              <div class="social">
+                <a href="{{team.twlink}}"><i class="icofont-twitter"></i></a>
+                <a href="{{team.fblink}}"><i class="icofont-facebook"></i></a>
+                <a href="{{team.instalink}}"><i class="icofont-instagram"></i></a>
+                <a href="{{team.linkedlink}}"><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+
+        
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+  </main><!-- End #main -->
+
+
+{%endblock%}
+
+ 

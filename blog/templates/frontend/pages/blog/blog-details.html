@@ -1,0 +1,75 @@
+{% extends 'frontend/master/master.html' %}
+{%load static%}
+
+{%block content%}
+<main id="main">
+
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ol>
+      <h2>{{blogDetails.title}}</h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+  <!-- ======= Blog Section ======= -->
+  <section id="blog" class="blog">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-8 entries">
+
+          <article class="entry entry-single">
+
+            <div class="entry-img">
+              <img src="{{blogDetails.image.url}}" alt="" class="img-fluid">
+            </div>
+
+            <h2 class="entry-title">
+              <a href="{%url 'blog_details' blogDetails.slug%}">{{blogDetails.title}}</a>
+            </h2>
+            <p>
+              {{blogDetails.description |safe }}
+            </p>
+
+
+
+            <div class="entry-meta">
+              <ul>
+                <li class="d-flex align-items-center"><i class="icofont-user"></i> <a
+                    href="{%url 'blog_details' blogDetails.slug%}">{{blogDetails.posted_by}}</a></li>
+                <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a
+                    href="blog-single.html"><time datetime="2020-01-01">{{blogDetails.created_at}}</time></a></li>
+
+              </ul>
+            </div>
+
+            
+
+
+          </article><!-- End blog entry -->
+
+
+        </div>
+        <div class="col-md-12">
+          <div id="fb-root"></div>
+          <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/details/{{blogDetails.slug}}/" data-width=""
+               data-numposts=""></div>
+        </div>
+
+      
+
+      </div>
+
+    </div>
+  </section><!-- End Blog Section -->
+
+</main><!-- End #main -->
+
+{%endblock%}

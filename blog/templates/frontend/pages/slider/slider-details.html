@@ -1,0 +1,16 @@
+{% extends 'frontend/master/master.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ sliderData.title }}</h1>
+                <img src="{{ sliderData.image.url }}" alt="" class="img-fluid">
+                <p>
+                    {{ sliderData.description |safe }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
